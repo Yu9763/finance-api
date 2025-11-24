@@ -104,7 +104,7 @@ curl -X GET "http://127.0.0.1:8000/metrics_image?symbols=AAPL,MSFT&period=6mo" -
 ```
 #### Graphique généré
 Exemple d’image Matplotlib montrant l’évolution des actions :
-![Graphique de rendement et volatilité](Visualisation.PNG)
+![Visualisation](https://github.com/Yu9763/finance-api/raw/495696ecdda6b13a9c325ae319b608401d6c50dc/Visualisation.PNG)
 
 ## Tests
 ### Lancer des tests :
