@@ -1,0 +1,32 @@
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+
+# Environment variables
+.env
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Tests / coverage output
+htmlcov/
+.coverage
+
+# Packaging
+*.egg-info/
+
+# Local databases (optional)
+*.db
+*.sqlite3
