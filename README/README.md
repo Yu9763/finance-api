@@ -58,8 +58,11 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 Accès : `http://127.0.0.1:8000`
-## Endpoint principal
+## Endpoints principaux
 ### GET /calculate
+Endpoint pour calculer le rendement, la volatilité et le ratio de Sharpe des actions demandées.
+
+---
 #### Paramètres
 
 - **symbols** : liste d’actions séparées par des virgules. **Ex**: `AAPL,MSFT`  
@@ -80,6 +83,25 @@ curl -X GET "http://127.0.0.1:8000/calculate?symbols=AAPL,MSFT&period=6mo" -H "a
   "volatility": {"AAPL": 0.25, "MSFT": 0.22}
 }
 ````
+### GET /metrics_image
+
+Endpoint pour générer un graphique représentant l’évolution cumulée du rendement et de la volatilité des actions demandées.  
+Le graphique est renvoyé encodé en **base64**.
+
+---
+
+#### Paramètres
+
+- **symbols** : liste d’actions séparées par des virgules. **Ex**: `AAPL,MSFT`  
+- **period**  : période pour les données. **Ex**: `6mo`  
+
+---
+
+#### Exemple d’appel cURL
+
+```bash
+curl -X GET "http://127.0.0.1:8000/metrics_image?symbols=AAPL,MSFT&period=6mo" -H "accept: application/json"
+```
 #### Graphique généré
 Exemple d’image Matplotlib montrant l’évolution des actions :
 ![Exemple_graph](Pictures\Visualisation.PNG)
@@ -92,6 +114,7 @@ pytest
 * Vérifie les calculs financiers sur un dataset fictif.
 * Vérifie le format JSON renvoyé par l’API.
 * Vérifie la gestion des erreurs (ex. symbole inconnu ou données vides).
+  
 ## Structure du projet:
 ````
 Mini-portfolio-api/
